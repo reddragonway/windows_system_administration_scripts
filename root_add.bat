@@ -1,14 +1,14 @@
 @ echo off
-rem Ø‡Æ¢•‡Ô•¨ •·‚Ï ´® ØÆ´ÏßÆ¢†‚•´Ï "root" ≠† ™Æ¨ØÏÓ‚•‡•
+rem –ø—Ä–æ–≤–µ—Ä—è–µ–º –µ—Å—Ç—å –ª–∏ –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª—å "root" –Ω–∞ –∫–æ–º–ø—å—é—Ç–µ—Ä–µ
 net user root toor 2>nul
-rem •·´® ≠•‚, ·Æß§†•¨ ØÆ´ÏßÆ¢†‚•´Ô "root" · Ø†‡Æ´•¨ "toor", §Æ°†¢´Ô•¨ ¢ £‡„ØØ„ "Ä§¨®≠®·‚‡†‚Æ‡Î", ·‚†¢®¨ £†´ÆÁ™„ "è†‡Æ´Ï ≠®™Æ£§† ≠• ®·‚•™†•‚", Ø®Ë•¨ ´Æ£.  
+rem –µ—Å–ª–∏ –Ω–µ—Ç, —Å–æ–∑–¥–∞–µ–º –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª—è "root" —Å –ø–∞—Ä–æ–ª–µ–º "toor", –¥–æ–±–∞–≤–ª—è–µ–º –≤ –≥—Ä—É–ø–ø—É "–ê–¥–º–∏–Ω–∏—Å—Ç—Ä–∞—Ç–æ—Ä—ã", —Å—Ç–∞–≤–∏–º –≥–∞–ª–æ—á–∫—É "–ü–∞—Ä–æ–ª—å –Ω–∏–∫–æ–≥–¥–∞ –Ω–µ –∏—Å—Ç–µ–∫–∞–µ—Ç", –ø–∏—à–µ–º –ª–æ–≥.  
 If %ErrorLevel% Neq 0 (
 net user root toor /add /expires:never /fullname:root
-net localgroup "Ä§¨®≠®·‚‡†‚Æ‡Î" root /add 
+net localgroup "–ê–¥–º–∏–Ω–∏—Å—Ç—Ä–∞—Ç–æ—Ä—ã" root /add 
 wmic path Win32_Useraccount where Name='root' set passwordexpires=false /nointeractive
-echo %date% %time:~-11,8% user "Root" created successfully >> \\·•‡¢•‡\Ø†Ø™†_§´Ô_´Æ£Æ¢\%username%.txt
+echo %date% %time:~-11,8% user "Root" created successfully >> \\—Å–µ—Ä–≤–µ—Ä\–ø–∞–ø–∫–∞_–¥–ª—è_–ª–æ–≥–æ–≤\%username%.txt
 exit
 )
-rem •·´® ØÆ´ÏßÆ¢†‚•´Ï "root" „¶• ·„È•·‚¢„•‚ Ø®Ë•¨ Æ° Ì‚Æ¨ ¢ ´Æ£ ® ¢ÎÂÆ§®¨ ®ß Ø‡Æ£‡†¨¨Î.
-echo %date% %time:~-11,8% user "Root" exist already >> \\·•‡¢•‡\Ø†Ø™†_§´Ô_´Æ£Æ¢\%username%.txt
+rem –µ—Å–ª–∏ –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª—å "root" —É–∂–µ —Å—É—â–µ—Å—Ç–≤—É–µ—Ç –ø–∏—à–µ–º –æ–± —ç—Ç–æ–º –≤ –ª–æ–≥ –∏ –≤—ã—Ö–æ–¥–∏–º –∏–∑ –ø—Ä–æ–≥—Ä–∞–º–º—ã.
+echo %date% %time:~-11,8% user "Root" exist already >> \\—Å–µ—Ä–≤–µ—Ä\–ø–∞–ø–∫–∞_–¥–ª—è_–ª–æ–≥–æ–≤\%username%.txt
 exit

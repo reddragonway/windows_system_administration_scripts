@@ -14,6 +14,15 @@ if (test-connection r0630000 -Count 2) {
         else {
             Write-Output "$((Get-Date).ToString('dd.MM.yyyy')) $(Get-Date -Format t) Ошибка при повторном запуске (за день). Нет связи с сервером sw06300008025" >> $logfile
         } 
+        # Тоже самое но для отдела Инвестирования
+        if (test-connection 10.63.0.25 -Count 2) {
+            Copy-Item \\r0630000\SHDIR\post\*.* -Force -Include "63-DTHSPC*.*" -Destination \\10.63.0.25\Inv\Списки_умерших -ErrorAction Ignore -Verbose 4>&1 2>&1 >> $logfile
+            Copy-Item \\r0630000\SHDIR\post\*.* -Force -Include "63_DTHSPC*.*" -Destination \\10.63.0.25\Inv\Списки_умерших -ErrorAction Ignore -Verbose 4>&1 2>&1 >> $logfile
+            Copy-Item \\r0630000\SHDIR\post\*.* -Force -Include "63_USPN*.*" -Destination \\10.63.0.25\Inv\Файлы_с_заявлениями_по_инвестированию -ErrorAction Ignore -Verbose 4>&1 2>&1 >> $logfile
+        } 
+        else {
+            Write-Output "$((Get-Date).ToString('dd.MM.yyyy')) $(Get-Date -Format t) Ошибка при повторном запуске (за день). Нет связи с сервером sw06300008print" >> $logfile
+        }
         Move-Item -Force \\r0630000\SHDIR\post\*.*  -Destination D:\pu_doc_auto_script\pu_doc_backup\$((Get-Date).ToString('yyyy-MM-dd')) -Verbose 4>&1 2>&1 >> $logfile
         Copy-Item -Force $logfile  -Destination D:\Disk-L\scripts_logs\pu_doc_log
         exit
@@ -43,6 +52,15 @@ if (test-connection r0630000 -Count 2) {
     } 
     else {
         Write-Output "$((Get-Date).ToString('dd.MM.yyyy')) $(Get-Date -Format t) Ошибка. Нет связи с сервером sw06300008025" >> $logfile
+    }
+    # Тоже самое но для отдела Инвестирования
+    if (test-connection 10.63.0.25 -Count 2) {
+            Copy-Item \\r0630000\SHDIR\post\*.* -Force -Include "63-DTHSPC*.*" -Destination \\10.63.0.25\Inv\Списки_умерших -ErrorAction Ignore -Verbose 4>&1 2>&1 >> $logfile
+            Copy-Item \\r0630000\SHDIR\post\*.* -Force -Include "63_DTHSPC*.*" -Destination \\10.63.0.25\Inv\Списки_умерших -ErrorAction Ignore -Verbose 4>&1 2>&1 >> $logfile
+            Copy-Item \\r0630000\SHDIR\post\*.* -Force -Include "63_USPN*.*" -Destination \\10.63.0.25\Inv\Файлы_с_заявлениями_по_инвестированию -ErrorAction Ignore -Verbose 4>&1 2>&1 >> $logfile
+    } 
+    else {
+            Write-Output "$((Get-Date).ToString('dd.MM.yyyy')) $(Get-Date -Format t) Ошибка при повторном запуске (за день). Нет связи с сервером sw06300008print" >> $logfile
     } 
     New-Item -ItemType Directory -Path "D:\pu_doc_auto_script\pu_doc_backup\$((Get-Date).ToString('yyyy-MM-dd'))" -Verbose 4>&1 2>&1 >> $logfile
     Move-Item \\r0630000\SHDIR\post\*.*  -Destination D:\pu_doc_auto_script\pu_doc_backup\$((Get-Date).ToString('yyyy-MM-dd')) -Verbose 4>&1 2>&1 >> $logfile

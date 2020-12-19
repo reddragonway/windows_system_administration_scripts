@@ -12,7 +12,7 @@ Copy-Item C:\папка -Recurse -Force -Destination С:\папка_с_влож�
 Copy-Item С:\нужный_файл.doc -Force -Destination С:\папка_с_вложением_для_отправки -ErrorAction Ignore -Verbose 4>&1 2>&1 >> $logfile
 # Создаем архив
 try {
-Compress-Archive -LiteralPath 'папка','файл' -DestinationPath 'С:\папка_с_вложением_для_отправки\вложение.zip' 
+Compress-Archive -LiteralPath 'С:\папка_с_вложением_для_отправки\папка','С:\папка_с_вложением_для_отправки\нужный_файл.doc' -DestinationPath 'С:\папка_с_вложением_для_отправки\вложение.zip' 
 Write-Output "$((Get-Date).ToString('dd.MM.yyyy')) $(Get-Date -Format t) ZIP-архив создан" >> $logfile
 }
 catch {

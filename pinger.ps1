@@ -36,3 +36,4 @@ write-host "===ВНИМАНИЕ===" -ForegroundColor Red
 write-host "Количество проблемных компьютеров: $failcounter" -ForegroundColor Red
     }
 write-host ""
+pause

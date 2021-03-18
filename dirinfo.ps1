@@ -64,3 +64,4 @@ write-host "=== ИТОГО: ==="
 write-host ""
 write-host "Директория $pathfordir весит: $foldersize MB"
 write-host ""
+pause

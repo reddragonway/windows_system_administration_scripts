@@ -64,6 +64,4 @@ if ($global:counter_notinstalled -gt 0)
 if ($global:counter_fail_ping -gt 0) 
 {Write-Host "Количество хостов, которые не пингуются: $global:counter_fail_ping" -ForegroundColor Red}
 write-host ""
-
-
-
+pause

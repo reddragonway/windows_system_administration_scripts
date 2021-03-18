@@ -45,4 +45,4 @@ get-wmiObject -Computer $pc Win32_NetworkAdapterConfiguration -Filter "IPEnabled
     }
 }
 ping_computers 
-
+pause

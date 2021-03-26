@@ -1,0 +1,1 @@
+if not exist \\share\AIDA64\reports\%username%.txt ( \\share\AIDA64\AIDA64Portable\aida64.exe /R \\share\AIDA64\reports\%username%.txt /SILENT /TEXT /CUSTOM \\share\AIDA64\AIDA64Portable\aida64.rpf ) else exit
